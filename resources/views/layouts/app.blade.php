@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="author" content="vinhgiang.net">
 
     <title>4S Invoice System</title>
 
@@ -148,6 +149,14 @@
                                     <a class="nav-link" href="/">
                                         <i class="bx bx-home-alt" aria-hidden="true"></i>
                                         <span>Dashboard</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-main">
+                                <li>
+                                    <a class="nav-link" href="/login">
+                                        <i class="bx bx-home-alt" aria-hidden="true"></i>
+                                        <span>Login</span>
                                     </a>
                                 </li>
                             </ul>
