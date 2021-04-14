@@ -9,16 +9,16 @@
                 <h2 class="title text-uppercase font-weight-bold m-0"><i class="bx bx-user-circle mr-1 text-6 position-relative top-5"></i> Sign In</h2>
             </div>
             <div class="card-body">
-                <form action="index.html" method="post">
+                <form wire:submit.prevent="submit">
                     <div class="form-group mb-3">
                         <label>Username</label>
                         <div class="input-group">
-                            <input name="username" type="text" class="form-control form-control-lg" />
+                            <input type="text" class="form-control form-control-lg" wire:model.lazy="form.email" />
                             <span class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="bx bx-user text-4"></i>
-                                            </span>
-                                        </span>
+                                <span class="input-group-text">
+                                    <i class="bx bx-user text-4"></i>
+                                </span>
+                            </span>
                         </div>
                     </div>
 
@@ -28,7 +28,7 @@
                             {{--<a href="pages-recover-password.html" class="float-right">Lost Password?</a>--}}
                         </div>
                         <div class="input-group">
-                            <input name="pwd" type="password" class="form-control form-control-lg" />
+                            <input type="password" class="form-control form-control-lg" wire:model.lazy="form.password" />
                             <span class="input-group-append">
                                 <span class="input-group-text">
                                     <i class="bx bx-lock text-4"></i>
@@ -48,10 +48,25 @@
                             <button type="submit" class="btn btn-primary mt-2">Sign In</button>
                         </div>
                     </div>
+
+                    @if ( count( $errors ) > 0 )
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong>Oh snap!</strong> Change a few things up and try submitting again.
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{!! $error !!}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </form>
             </div>
         </div>
-
         <p class="text-center text-muted mt-3 mb-3">&copy; Copyright {{ date('Y') }}. All Rights Reserved.</p>
     </div>
 </section>
